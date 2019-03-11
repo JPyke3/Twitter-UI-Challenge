@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:profileapp/widgets/homepage.dart';
 
 void main() => runApp(MyApp());
@@ -72,14 +73,14 @@ class _MyRootPageState extends State<MyRootPage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Ionicons.getIconData("home-outline")),
             title: Text("Home"),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search), title: Text("Search")),
+              icon: Icon(Ionicons.getIconData("search")), title: Text("Search")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), title: Text("Notifications")),
-          BottomNavigationBarItem(icon: Icon(Icons.mail), title: Text("Inbox")),
+              icon: Icon(Ionicons.getIconData("bell-outline")), title: Text("Notifications")),
+          BottomNavigationBarItem(icon: Icon(Ionicons.getIconData("email-outline")), title: Text("Inbox")),
         ],
       ),
     );
