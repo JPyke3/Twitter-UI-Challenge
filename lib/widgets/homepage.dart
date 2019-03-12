@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
-class HomePage extends StatefulWidget {
-  final Widget child;
-
-  HomePage({Key key, this.child}) : super(key: key);
-
-  _HomePageState createState() => _HomePageState();
-}
+import 'package:outline_material_icons/outline_material_icons.dart';
 
 class Tweets {
   final String name;
@@ -19,7 +11,10 @@ class Tweets {
   Tweets(this.name, this.username, this.time, this.body, this.profilePicutre);
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
+  final Widget child;
+
+  HomePage({Key key, this.child}) : super(key: key);
   Future<List<Tweets>> tweetData() async {
     List<Tweets> data = [];
     data = [
@@ -55,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                 (BuildContext context, AsyncSnapshot<List<Tweets>> snapshot) {
               if (snapshot.hasData) {
                 return ListView.builder(
+                  key: PageStorageKey("TweetKey"),
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int i) {
                     return Container(
@@ -158,14 +154,6 @@ class _HomePageState extends State<HomePage> {
             },
           ),
         ),
-        Positioned(
-          bottom: 8,
-          right: 8,
-          child: FloatingActionButton(
-            child: Icon(Ionicons.getIconData("home-outline")),
-            onPressed: () {},
-          ),
-        )
       ],
     );
   }
